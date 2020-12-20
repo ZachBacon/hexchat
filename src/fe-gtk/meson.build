@@ -51,10 +51,10 @@ elif host_machine.system() == 'windows'
   hexchat_gtk_sources += 'notifications/notification-windows.c'
 
   # TODO: mingw doesn't have these headers or libs
-  # add_languages('cpp')
-  # shared_module('hcnotifications-winrt',
-  #  sources: 'notifications/notification-winrt.cpp'
-  #)
+  add_languages('cpp')
+  shared_module('hcnotifications-winrt',
+	sources: 'notifications/notification-winrt.cpp'
+  )
 
 else
   hexchat_gtk_sources += 'notifications/notification-dummy.c'
