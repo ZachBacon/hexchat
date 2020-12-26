@@ -28,7 +28,7 @@ hexchat_gtk_sources = [
   'xtext.c'
 ]
 
-gtk_dep = dependency('gtk+-2.0', version: '>= 2.24.0')
+gtk_dep = dependency('gtk+-3.0', version: '>= 3.24.0')
 hexchat_gtk_deps = [
   hexchat_common_dep,
   libgmodule_dep, # used by libsexy
@@ -39,7 +39,7 @@ if gtk_dep.get_pkgconfig_variable('target') == 'x11'
   hexchat_gtk_deps += dependency('x11')
 endif
 
-hexchat_gtk_cflags = []
+hexchat_gtk_cflags = [ '-DGDK_DISABLE_DEPRECATED -DGTK_DISABLE_DEPRECATED' ]
 
 hexchat_gtk_ldflags = []
 
@@ -51,10 +51,10 @@ elif host_machine.system() == 'windows'
   hexchat_gtk_sources += 'notifications/notification-windows.c'
 
   # TODO: mingw doesn't have these headers or libs
-  add_languages('cpp')
-  shared_module('hcnotifications-winrt',
-	sources: 'notifications/notification-winrt.cpp'
-  )
+  #add_languages('cpp')
+  #shared_module('hcnotifications-winrt',
+	#sources: 'notifications/notification-winrt.cpp'
+  #)
 
 else
   hexchat_gtk_sources += 'notifications/notification-dummy.c'

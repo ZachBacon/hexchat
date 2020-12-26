@@ -1,5 +1,5 @@
-project('hexchat', 'c',
-  version: '2.14.3',
+project('hexchat-gtk3', 'c',
+  version: '3.0.0',
   meson_version: '>= 0.40.0',
   default_options: [
     'c_std=gnu89',
