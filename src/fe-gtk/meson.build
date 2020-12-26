@@ -39,7 +39,7 @@ if gtk_dep.get_pkgconfig_variable('target') == 'x11'
   hexchat_gtk_deps += dependency('x11')
 endif
 
-hexchat_gtk_cflags = [ '-DGDK_DISABLE_DEPRECATED -DGTK_DISABLE_DEPRECATED' ]
+hexchat_gtk_cflags = []
 
 hexchat_gtk_ldflags = []
 
