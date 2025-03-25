@@ -15,19 +15,20 @@ jobs:
         shell: msys2 {0}
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - uses: msys2/setup-msys2@v2
         with:
+          msystem: CLANG64
           install: >-
-            mingw-w64-x86_64-gcc
-            mingw-w64-x86_64-pkg-config
-            mingw-w64-x86_64-python3-cffi
-            mingw-w64-x86_64-meson
-            mingw-w64-x86_64-gtk2
-            mingw-w64-x86_64-gtk-update-icon-cache
-            mingw-w64-x86_64-luajit
-            mingw-w64-x86_64-desktop-file-utils
+            mingw-w64-clang-x86_64-gcc
+            mingw-w64-clang-x86_64-pkg-config
+            mingw-w64-clang-x86_64-python3-cffi
+            mingw-w64-clang-x86_64-meson
+            mingw-w64-clang-x86_64-gtk2
+            mingw-w64-clang-x86_64-gtk-update-icon-cache
+            mingw-w64-clang-x86_64-luajit
+            mingw-w64-clang-x86_64-desktop-file-utils
 
       - name: Configure
         run: >-
