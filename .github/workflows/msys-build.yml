@@ -94,8 +94,19 @@ jobs:
             D:/a/_temp/msys64/clang64/bin/librsvg-2-2.dll
             D:/a/_temp/msys64/clang64/bin/libffi-8.dll
             D:/a/_temp/msys64/clang64/bin/libpcre-2-8-0.dll
+            D:/a/_temp/msys64/clang64/bin/libthai-0.dll
+            D:/a/_temp/msys64/clang64/bin/libfribidi-0.dll
+            D:/a/_temp/msys64/clang64/bin/libwebp-7.dll
+            D:/a/_temp/msys64/clang64/bin/libdatrie-1.dll
+            D:/a/_temp/msys64/clang64/bin/libzstd.dll
             D:/a/_temp/msys64/clang64/bin/libpangowin32-1.0-0.dll
             D:/a/_temp/msys64/clang64/bin/libpangoft2-1.0-0.dll
+            D:/a/_temp/msys64/clang64/bin/liblzma-5.dll
+            D:/a/_temp/msys64/clang64/bin/libLerc.dll
+            D:/a/_temp/msys64/clang64/bin/libjbig-0.dll
+            D:/a/_temp/msys64/clang64/bin/libdeflate.dll
+            D:/a/_temp/msys64/clang64/bin/libsharpyuv-0.dll
+            D:/a/_temp/msys64/clang64/bin/libunwind.dll
             D:/a/_temp/msys64/clang64/lib/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-ani.dll
             D:/a/_temp/msys64/clang64/lib/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-bmp.dll
             D:/a/_temp/msys64/clang64/lib/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-gif.dll
