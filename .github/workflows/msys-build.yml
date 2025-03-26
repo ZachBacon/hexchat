@@ -30,6 +30,7 @@ jobs:
             mingw-w64-clang-x86_64-luajit
             mingw-w64-clang-x86_64-desktop-file-utils
             mingw-w64-clang-x86_64-itstool
+            mingw-w64-clang-x86_64-gettext-tools
             itstool
 
       - name: Configure
