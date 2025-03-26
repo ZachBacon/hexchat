@@ -29,6 +29,8 @@ jobs:
             mingw-w64-clang-x86_64-gtk-update-icon-cache
             mingw-w64-clang-x86_64-luajit
             mingw-w64-clang-x86_64-desktop-file-utils
+            mingw-w64-clang-x86_64-itstool
+            itstool
 
       - name: Configure
         run: >-
