@@ -37,6 +37,7 @@ jobs:
           -Ddbus=disabled
           -Dwith-upd=false
           -Dwith-perl=false
+          -Dwith-python=false
 
       - name: Build
         run: ninja -C build
