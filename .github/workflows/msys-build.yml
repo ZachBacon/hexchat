@@ -41,6 +41,7 @@ jobs:
           -Dwith-upd=false
           -Dwith-perl=false
           -Dwith-python=false
+          --prefix=/opt/hexchat
 
       - name: Build
         run: ninja -C build
