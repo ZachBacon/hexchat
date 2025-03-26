@@ -41,7 +41,6 @@ jobs:
           -Dwith-upd=false
           -Dwith-perl=false
           -Dwith-python=false
-          --prefix=/opt/hexchat
 
       - name: Build
         run: ninja -C build
@@ -51,8 +50,74 @@ jobs:
 
       - name: Install
         run: ninja -C build install
-
-      - uses: actions/upload-artifact@v4
+      
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
         with:
           name: hexchat-clang64
-          path: D:/a/_temp/msys64/opt/hexchat/ # or path/to/artifact
+          path: |
+            D:/a/_temp/msys64/clang64/bin/hexchat.exe
+            D:/a/_temp/msys64/clang64/bin/libgio-2.0-0.dll
+            D:/a/_temp/msys64/clang64/bin/libgobject-2.0-0.dll
+            D:/a/_temp/msys64/clang64/bin/libglib-2.0-0.dll
+            D:/a/_temp/msys64/clang64/bin/libintl-8.dll
+            D:/a/_temp/msys64/clang64/bin/libiconv-2.dll
+            D:/a/_temp/msys64/clang64/bin/libgmodule-2.0-0.dll
+            D:/a/_temp/msys64/clang64/bin/libgtk-win32-2.0-0.dll
+            D:/a/_temp/msys64/clang64/bin/libgdk-win32-2.0-0.dll
+            D:/a/_temp/msys64/clang64/bin/libpangocairo-1.0-0.dll
+            D:/a/_temp/msys64/clang64/bin/libpango-1.0-0.dll
+            D:/a/_temp/msys64/clang64/bin/libgdk_pixbuf-2.0-0.dll
+            D:/a/_temp/msys64/clang64/bin/libssl-3-x64.dll
+            D:/a/_temp/msys64/clang64/bin/libcrypto-3-x64.dll
+            D:/a/_temp/msys64/clang64/bin/libatk-1.0-0.dll
+            D:/a/_temp/msys64/clang64/bin/libcairo-2.dll
+            D:/a/_temp/msys64/clang64/bin/libgdk_pixbuf-2.0-0.dll
+            D:/a/_temp/msys64/clang64/bin/libpng16-16.dll
+            D:/a/_temp/msys64/clang64/bin/libjpeg-8.dll
+            D:/a/_temp/msys64/clang64/bin/libtiff-6.dll
+            D:/a/_temp/msys64/clang64/bin/libfontconfig-1.dll
+            D:/a/_temp/msys64/clang64/bin/libfreetype-6.dll
+            D:/a/_temp/msys64/clang64/bin/libpixman-1-0.dll
+            D:/a/_temp/msys64/clang64/bin/libexpat-1.dll
+            D:/a/_temp/msys64/clang64/bin/zlib1.dll
+            D:/a/_temp/msys64/clang64/bin/libbz2-1.dll
+            D:/a/_temp/msys64/clang64/bin/libharfbuzz-0.dll
+            D:/a/_temp/msys64/clang64/bin/libbrotlidec.dll
+            D:/a/_temp/msys64/clang64/bin/libbrotlicommon.dll
+            D:/a/_temp/msys64/clang64/bin/libgraphite2.dll
+            D:/a/_temp/msys64/clang64/bin/libc++.dll
+            D:/a/_temp/msys64/clang64/bin/libbrotlicommon.dll
+            D:/a/_temp/msys64/clang64/bin/lua51.dll
+            D:/a/_temp/msys64/clang64/bin/libjxl.dll
+            D:/a/_temp/msys64/clang64/bin/libjxl_threads.dll
+            D:/a/_temp/msys64/clang64/bin/librsvg-2-2.dll
+            D:/a/_temp/msys64/clang64/lib/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-ani.dll
+            D:/a/_temp/msys64/clang64/lib/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-bmp.dll
+            D:/a/_temp/msys64/clang64/lib/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-gif.dll
+            D:/a/_temp/msys64/clang64/lib/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-icns.dll
+            D:/a/_temp/msys64/clang64/lib/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-ico.dll
+            D:/a/_temp/msys64/clang64/lib/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-jpeg.dll
+            D:/a/_temp/msys64/clang64/lib/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-jxl.dll
+            D:/a/_temp/msys64/clang64/lib/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-png.dll
+            D:/a/_temp/msys64/clang64/lib/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-pnm.dll
+            D:/a/_temp/msys64/clang64/lib/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-qtif.dll
+            D:/a/_temp/msys64/clang64/lib/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-tga.dll
+            D:/a/_temp/msys64/clang64/lib/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-tiff.dll
+            D:/a/_temp/msys64/clang64/lib/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-xbm.dll
+            D:/a/_temp/msys64/clang64/lib/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-xpm.dll
+            D:/a/_temp/msys64/clang64/lib/gdk-pixbuf-2.0/2.10.0/loaders/pixbufloader-svg.dll
+            D:/a/_temp/msys64/clang64/lib/gdk-pixbuf-2.0/2.10.0/loaders.cache
+            D:/a/_temp/msys64/clang64/lib/gtk-2.0/2.10.0/engines/libpixmap.dll
+            D:/a/_temp/msys64/clang64/lib/gtk-2.0/2.10.0/engines/libwimp.dll
+            D:/a/_temp/msys64/clang64/lib/gtk-2.0/2.10.0/modules/libgail.dll
+            D:/a/_temp/msys64/clang64/share/themes
+            D:/a/_temp/msys64/clang64/share/locale
+            D:/a/_temp/msys64/clang64/share/icons
+            D:/a/_temp/msys64/clang64/share/luajit-2.1
+            D:/a/_temp/msys64/clang64/lib/hexchat/plugins/checksum.dll
+            D:/a/_temp/msys64/clang64/lib/hexchat/plugins/fishlim.dll
+            D:/a/_temp/msys64/clang64/lib/hexchat/plugins/libexec.dll
+            D:/a/_temp/msys64/clang64/lib/hexchat/plugins/lua.dll
+            D:/a/_temp/msys64/clang64/lib/hexchat/plugins/sysinfo.dll
+            D:/a/_temp/msys64/clang64/lib/hexchat/plugins/winamp.dll
