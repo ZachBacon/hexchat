@@ -23,3 +23,7 @@ provide binary packages linked to the OpenSSL libraries, provided that
 all other requirements of the GPL are met.
 See file COPYING for details.
 </sub>
+
+[![MSYS2 Build](https://github.com/ZachBacon/hexchat/actions/workflows/msys-build.yml/badge.svg)](https://github.com/ZachBacon/hexchat/actions/workflows/msys-build.yml)
+[![Ubuntu Build](https://github.com/ZachBacon/hexchat/actions/workflows/ubuntu-build.yml/badge.svg)](https://github.com/ZachBacon/hexchat/actions/workflows/ubuntu-build.yml)
+[![Windows Build](https://github.com/ZachBacon/hexchat/actions/workflows/windows-build.yml/badge.svg)](https://github.com/ZachBacon/hexchat/actions/workflows/windows-build.yml)
