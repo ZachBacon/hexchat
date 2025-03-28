@@ -12,6 +12,7 @@ if python_opt.startswith('python3')
 else
   python_dep = dependency(python_opt, version: '>= 2.7')
 endif
+thread_dep = dependency('threads')
 
 python3_source = custom_target('python-bindings',
   input: ['../../src/common/hexchat-plugin.h', 'python.py'],
@@ -24,7 +25,7 @@ install_data(['_hexchat.py', 'hexchat.py', 'xchat.py'],
 )
 
 shared_module('python', python3_source,
-  dependencies: [hexchat_plugin_dep, python_dep],
+  dependencies: [hexchat_plugin_dep, python_dep, thread_dep],
   install: true,
   install_dir: plugindir,
   name_prefix: '',

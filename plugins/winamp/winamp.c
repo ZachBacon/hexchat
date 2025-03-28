@@ -1,4 +1,4 @@
-/********************* Winamp Plugin 0.3******************************
+/********************* Wacup Plugin 0.3******************************
  *
  *   Distribution: GPL
  *
@@ -6,6 +6,7 @@
  *   Modified by: SilvereX - SilvereX@karklas.mif.vu.lt
  *   Modified again by: Derek Buitenhuis - daemon404@gmail.com
  *   Modified yet again by: Berke Viktor - berkeviktor@aol.com
+ *   Modified yet again by: Zach Bacon - zachbacon@vba-m.com
  *********************************************************************/
 
 #include "windows.h"
@@ -23,59 +24,59 @@
 static hexchat_plugin *ph;   /* plugin handle */
 
 static int
-winamp(char *word[], char *word_eol[], void *userdata)
+Wacup(char *word[], char *word_eol[], void *userdata)
 {
-	HWND hwndWinamp = FindWindowW(L"Winamp v1.x",NULL);
+	HWND hwndWacup = FindWindowW(L"Winamp V1.x",NULL);
 
-	if (hwndWinamp)
+	if (hwndWacup)
 	{
-		if (!stricmp("PAUSE", word[2]))
+		if (!_stricmp("PAUSE", word[2]))
 		{
-			if (SendMessage(hwndWinamp,WM_USER, 0, 104))
+			if (SendMessage(hwndWacup,WM_USER, 0, 104))
 			{
-				SendMessage(hwndWinamp, WM_COMMAND, 40046, 0);
+				SendMessage(hwndWacup, WM_COMMAND, 40046, 0);
 			
-				if (SendMessage(hwndWinamp, WM_USER, 0, 104) == PLAYING)
-					hexchat_printf(ph, "Winamp: playing");
+				if (SendMessage(hwndWacup, WM_USER, 0, 104) == PLAYING)
+					hexchat_printf(ph, "Wacup: playing");
 				else
-					hexchat_printf(ph, "Winamp: paused");
+					hexchat_printf(ph, "Wacup: paused");
 			}
 		}
-		else if (!stricmp("STOP", word[2]))
+		else if (!_stricmp("STOP", word[2]))
 		{
-			SendMessage(hwndWinamp, WM_COMMAND, 40047, 0);
-			hexchat_printf(ph, "Winamp: stopped");
+			SendMessage(hwndWacup, WM_COMMAND, 40047, 0);
+			hexchat_printf(ph, "Wacup: stopped");
 		}
-		else if (!stricmp("PLAY", word[2]))
+		else if (!_stricmp("PLAY", word[2]))
 		{
-			SendMessage(hwndWinamp, WM_COMMAND, 40045, 0);
-			hexchat_printf(ph, "Winamp: playing");
+			SendMessage(hwndWacup, WM_COMMAND, 40045, 0);
+			hexchat_printf(ph, "Wacup: playing");
 		}
-		else if (!stricmp("NEXT", word[2]))
+		else if (!_stricmp("NEXT", word[2]))
 		{
-			SendMessage(hwndWinamp, WM_COMMAND, 40048, 0);
-			hexchat_printf(ph, "Winamp: next playlist entry");
+			SendMessage(hwndWacup, WM_COMMAND, 40048, 0);
+			hexchat_printf(ph, "Wacup: next playlist entry");
 		}
-		else if (!stricmp("PREV", word[2]))
+		else if (!_stricmp("PREV", word[2]))
 		{
-			SendMessage(hwndWinamp, WM_COMMAND, 40044, 0);
-			hexchat_printf(ph, "Winamp: previous playlist entry");
+			SendMessage(hwndWacup, WM_COMMAND, 40044, 0);
+			hexchat_printf(ph, "Wacup: previous playlist entry");
 		}
-		else if (!stricmp("START", word[2]))
+		else if (!_stricmp("START", word[2]))
 		{
-			SendMessage(hwndWinamp, WM_COMMAND, 40154, 0);
-			hexchat_printf(ph, "Winamp: playlist start");
+			SendMessage(hwndWacup, WM_COMMAND, 40154, 0);
+			hexchat_printf(ph, "Wacup: playlist start");
 		}
 		else if (!word_eol[2][0])
 		{
 			wchar_t wcurrent_play[2048];
 			char *current_play, *p;
-			int len = GetWindowTextW(hwndWinamp, wcurrent_play, G_N_ELEMENTS(wcurrent_play));
+			int len = GetWindowTextW(hwndWacup, wcurrent_play, G_N_ELEMENTS(wcurrent_play));
 
 			current_play = g_utf16_to_utf8 (wcurrent_play, len, NULL, NULL, NULL);
 			if (!current_play)
 			{
-				hexchat_print (ph, "Winamp: Error getting song information.");
+				hexchat_print (ph, "Wacup: Error getting song information.");
 				return HEXCHAT_EAT_ALL;
 			}
 
@@ -85,7 +86,7 @@ winamp(char *word[], char *word_eol[], void *userdata)
 				p = current_play + strlen(current_play) - 8;
 				while (p >= current_play)
 				{
-					if (!strnicmp(p, "- Winamp", 8))
+					if (!_strnicmp(p, "- Wacup", 8))
 						break;
 					p--;
 				}
@@ -107,18 +108,18 @@ winamp(char *word[], char *word_eol[], void *userdata)
 				if (*p != '\0')
 					hexchat_commandf (ph, "me is now playing: %s", p);
 				else
-					hexchat_print (ph, "Winamp: No song information found.");
+					hexchat_print (ph, "Wacup: No song information found.");
 				g_free (current_play);
 			}
 			else
-				hexchat_print(ph, "Winamp: Nothing being played.");
+				hexchat_print(ph, "Wacup: Nothing being played.");
 		}
 		else
-			hexchat_printf(ph, "Usage: /WINAMP [PAUSE|PLAY|STOP|NEXT|PREV|START]\n");
+			hexchat_printf(ph, "Usage: /Wacup [PAUSE|PLAY|STOP|NEXT|PREV|START]\n");
 	}
 	else
 	{
-		hexchat_print(ph, "Winamp not found.\n");
+		hexchat_print(ph, "Wacup not found.\n");
 	}
 	return HEXCHAT_EAT_ALL;
 }
@@ -133,14 +134,14 @@ hexchat_plugin_init(hexchat_plugin *plugin_handle,
 	/* we need to save this for use with any hexchat_* functions */
 	ph = plugin_handle;
 
-	*plugin_name = "Winamp";
-	*plugin_desc = "Winamp plugin for HexChat";
+	*plugin_name = "Wacup";
+	*plugin_desc = "Wacup plugin for HexChat";
 	*plugin_version = "0.6";
 
-	hexchat_hook_command (ph, "WINAMP", HEXCHAT_PRI_NORM, winamp, "Usage: /WINAMP [PAUSE|PLAY|STOP|NEXT|PREV|START] - control Winamp or show what's currently playing", 0);
-   	hexchat_command (ph, "MENU -ishare\\music.png ADD \"Window/Display Current Song (Winamp)\" \"WINAMP\"");
+	hexchat_hook_command (ph, "Wacup", HEXCHAT_PRI_NORM, Wacup, "Usage: /Wacup [PAUSE|PLAY|STOP|NEXT|PREV|START] - control Wacup or show what's currently playing", 0);
+   	hexchat_command (ph, "MENU -ishare\\music.png ADD \"Window/Display Current Song (Wacup)\" \"Wacup\"");
 
-	hexchat_print (ph, "Winamp plugin loaded\n");
+	hexchat_print (ph, "Wacup plugin loaded\n");
 
 	return 1;	   /* return 1 for success */
 }
@@ -148,7 +149,7 @@ hexchat_plugin_init(hexchat_plugin *plugin_handle,
 int
 hexchat_plugin_deinit(void)
 {
-	hexchat_command (ph, "MENU DEL \"Window/Display Current Song (Winamp)\"");
-	hexchat_print (ph, "Winamp plugin unloaded\n");
+	hexchat_command (ph, "MENU DEL \"Window/Display Current Song (Wacup)\"");
+	hexchat_print (ph, "Wacup plugin unloaded\n");
 	return 1;
 }
